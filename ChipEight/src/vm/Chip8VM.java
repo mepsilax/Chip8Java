@@ -135,6 +135,13 @@ public class Chip8VM {
    }//End method initialise
 
    /**
+    * Forces the VM into the ready state for testing purposes.
+    */
+   public void forceReady(){
+	   ready = true;
+   }//End method forceReady
+   
+   /**
     * Loads the game from the given {@link File}e
     * @param game the game file to load.
     * @throws IOException
