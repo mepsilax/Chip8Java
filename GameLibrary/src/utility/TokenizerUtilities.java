@@ -1,7 +1,7 @@
 package utility;
 
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.Reader;
 import java.io.StreamTokenizer;
 
 public class TokenizerUtilities{
@@ -9,9 +9,9 @@ public class TokenizerUtilities{
    public static final String NEW_LINE =  System.getProperty("line.separator");
    public static final String TAB = "   ";
 
-   public static StreamTokenizer createTokenizer(FileReader file){
+   public static StreamTokenizer createTokenizer(Reader reader){
       StreamTokenizer tokenizer = null;
-      tokenizer = new StreamTokenizer(file);
+      tokenizer = new StreamTokenizer(reader);
       tokenizer.wordChars( '_', '_' );
       return tokenizer;
    }//End method createTokenizer

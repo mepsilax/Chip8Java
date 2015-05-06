@@ -1,8 +1,8 @@
 package resource;
 
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.StreamTokenizer;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -34,8 +34,8 @@ public class KeyConfig extends Resource{
     */
    @Override public void load(String fileName) throws IOException {
       keyMap = new HashMap<Integer, Integer>();
-      File file = ResourceManager.getRelativeFileForFilename(fileName);
-      FileReader reader = new FileReader(file);
+      InputStream stream = ResourceManager.getInputStreamForFilename(fileName);
+      InputStreamReader reader = new InputStreamReader(stream);
       StreamTokenizer tokenizer = TokenizerUtilities.createTokenizer(reader);
       while(!TokenizerUtilities.isEndOfFile(tokenizer)){
          int key = Keyboard.getKeyIndex(TokenizerUtilities.readString(tokenizer));

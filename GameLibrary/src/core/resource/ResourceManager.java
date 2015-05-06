@@ -57,13 +57,7 @@ public class ResourceManager {
    }//End method load
 
    public static InputStream getInputStreamForFilename(String fileName) throws IOException{
-      URL url = ResourceManager.class.getClassLoader().getResource(fileName);
-      //If the URL doesn't resolve to an application resource, try
-      //treating it as a file.
-      if(url == null){
-         url = new File(fileName).toURI().toURL();
-      }//End if
-      return url.openStream();
+      return ResourceManager.class.getClassLoader().getResourceAsStream(fileName);
    }//End method getInputStreamForFileName
    
    public static File getRelativeFileForFilename(String fileName) throws IOException{
